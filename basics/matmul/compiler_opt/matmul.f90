@@ -1,11 +1,11 @@
 !!!!
-!! File: vector.f90
-!! Description: 
+!! File: matmul.f90
+!! Description: Matrix multiplication code
 !! Author: Bruno R. de Abreu  |  babreu at illinois dot edu
 !! National Center for Supercomputing Applications (NCSA)
 !!  
-!! Creation Date: Wednesday, 2nd June 2021, 3:38:35 pm
-!! Last Modified: Thursday, 3rd June 2021, 7:13:58 am
+!! Creation Date: Tuesday, 17th August 2021, 9:29:08 am
+!! Last Modified: Tuesday, 17th August 2021, 9:29:21 am
 !!  
 !! Copyright (c) 2021, Bruno R. de Abreu, National Center for Supercomputing Applications.
 !! All rights reserved.
@@ -23,35 +23,32 @@
 !!          the software and its usage.
 !!!!
 
-
-program vector_timing
+program matmul
     use, intrinsic :: iso_fortran_env
     implicit none
     integer, parameter :: dp = REAL64 ! double precision
-    integer, parameter :: i64 = INT64 ! 64-bit int
-    integer(i64), parameter :: n=100000000_i64
-    real(dp) :: startT, endT, execT
-    real(dp), parameter :: w = 1.0_dp
-    real(dp) :: r
-    real(dp), dimension(n) :: v
-    integer(i64) :: i
+    integer, parameter :: i32 = INT32 ! 32-bit int
+    integer(i32), parameter :: ord=1000_i32
+    real(dp) :: startT, endT
+    real(dp), parameter :: zero=0.0_dp, one=1.0_dp, two=2.0_dp
+    real(dp), dimension(ord,ord) :: m, n, p
+    integer(i32) :: i, j, k
 
-    !! write to array
-    call cpu_time(startT)
-    do i = 1, n
-        v(i) = w
-    enddo
-    call cpu_time(endT)    
-    execT = (endT - startT)
-    write(*,*) 'Writing to array time ', execT, ' s, or ', execT/n, ' s per operation.' 
-    
-    !! read from array
-    call cpu_time(startT)
-    do i = 1, n
-        r = v(i)
-    enddo
-    call cpu_time(endT)    
-    execT = (endT - startT)
-    write(*,*) 'Reading from array time ', execT, ' s, or ', execT/n, ' s per operation.'     
+    !! filling up matrices
+    p = zero
+    m = one
+    n = two
 
-end program 
+    !! trivial matrix multiplication
+    call cpu_time(startT)
+    do k = 1, ord
+        do j = 1, ord
+            do i = 1, ord
+                p(i,j) = m(i,k) * n(k,j) 
+            enddo
+        enddo
+    enddo
+    call cpu_time(endT)
+    write(*,*) 'Matrix multiplication took: ', (endT-startT), ' s'
+
+end program matmul
