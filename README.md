@@ -9,3 +9,10 @@ This is an example of a matrix multiplication code. It is currently offered in F
 Serial code in Fortran. Makefile is available for compilation with GCC. 
 #### [compiler_opt](./basics/matmul/compiler_opt)
 This folder contains the serial code and a supporting Python script and Jupyter notebook that compiles and runs the code with every single individual GCC optmization flag (listed [here](https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html)).
+
+
+
+
+
+# CITE-ME
+As all other projects in this GitHub, the programs are protected by a license/copyright that requires proper acknowledgement. Please refer to: https://github.com/babreu-ncsa/cite-me.
