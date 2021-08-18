@@ -2,7 +2,7 @@
 Series of examples on how to optmize/parallelize serial codes.
 
 ## [basics](./basics)
-This folder has some basics exercises that optimize and parallelize very simple serial codes.
+This folder has some basic exercises that optimize and parallelize very simple serial codes.
 ### 1. [matmul](./basics/matmul)
 This is an example of a matrix multiplication code. It is currently offered in Fortran. It was tested with GCC 10.2.1 20201220.
 #### [serial](./basics/matmul/serial)
