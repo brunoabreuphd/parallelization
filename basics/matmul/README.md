@@ -4,7 +4,7 @@ This is a simple Fortran code that performs matrix multiplication. The idea here
 
 ![equation](https://latex.codecogs.com/gif.latex?P_%7Bij%7D%20%3D%20%5Csum_%7Bk%7D%20M_%7Bik%7DN_%7Bkj%7D)
 
-Therefore, to calculate all the elements of P, a triple (nested) do loop is required. This is obviously the intensive part of the computation and we will test how different compiler optimization options change the total run time of the calculation. We will be using a Fortran code and GCC compilers. The original code uses 1000x1000 matrices.
+Therefore, to calculate all the elements of P, a triple (nested) do loop is required. This is obviously the intensive part of the computation and we will test how different compiler optimization options change the total run time of the calculation. We will be using a Fortran code and GCC compilers. The original code uses 1000x1000 matrices. I ran this on a Macbook, with GCC 10.2.1 20201220.
 
 ## [serial](./serial)
 This folder contains the Fortran serial code that performs matrix multiplication, [matmul_serial.f90](./serial/matmul_serial.f90), and a [Makefile](./serial/Makefile) to help users with no compilation experience (if that is your case, just bring your Terminal session to the [serial](./serial) folder and type *make*). The binary will have the default *a.out* name. Execute the binary and check the output for the multiplication time.
