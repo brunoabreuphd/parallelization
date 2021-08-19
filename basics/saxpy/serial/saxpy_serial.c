@@ -51,7 +51,7 @@ int main()
     return 0;
 }
 
-void saxpy(int n, float a, float *x, float *y)
+void saxpy(int n, float a, float *restrict x, float *restrict y)
 {
     for (int i = 0; i < n; ++i)
         y[i] = a * x[i] + y[i];
