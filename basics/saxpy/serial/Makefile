@@ -1,17 +1,17 @@
 # Fortran GCC compiler
-FC=gfortran
+CC=gcc-10
 
-# compilation flags (none))
-FDFLAGS=
+# compilation flags (none)
+LDFLAGS=
 
 # source file
-SOURCE=./matmul_serial.f90
+SOURCE=./saxpy_serial.c
 
 # binary name
 EXEC=a.out
 
 all:
-	$(FC) $(FDFLAGS) $(SOURCE) -o $(EXEC)
+	$(CC) $(FDFLAGS) $(SOURCE) -o $(EXEC)
 	@echo -e "----- COMPILATION DONE -----"
 
 
