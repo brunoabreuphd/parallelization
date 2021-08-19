@@ -1,5 +1,5 @@
 # Fortran GCC compiler
-CC=gcc-10
+CC=gcc
 
 # compilation flags (none)
 LDFLAGS=
