@@ -17,7 +17,7 @@ This folder contains the serial code and supporting Python files. The GCC compil
 These Python codes do not require fancy imports: pretty much any base Anaconda distribution that I am aware of should have the necessary packages already installed. However, in case it does not work for you, the environment is specified in [conda_env.yml](./compiler_opt/conda_env.yml).
 
 ### Conclusions
-- None of the flags listed in the Optimize Options of the GNU Compiler documentation changes the execution time of a matrix multiplication significantly.
+- None of the flags listed in the Optimize Options of the GNU Compiler documentation changes the execution time of SAXPY significantly.
 - Instead of trying individual options, one should always first use the bundled options (-Ox)
 - For this simple code, level 2 and 3 optimizations reduce execution time by a good factor
 - Compiler optimizations can be obscure. Make sure your code runs without errors before using them (writing a simple test is a good practice)
