@@ -1,5 +1,5 @@
 !!!!
-!! File: matmul.f90
+!! File: matmul_serial.f90
 !! Description: Matrix multiplication code
 !! Author: Bruno R. de Abreu  |  babreu at illinois dot edu
 !! National Center for Supercomputing Applications (NCSA)
@@ -30,14 +30,15 @@ program matmul
     integer, parameter :: i32 = INT32 ! 32-bit int
     integer(i32), parameter :: ord=1000_i32
     real(dp) :: startT, endT
-    real(dp), parameter :: zero=0.0_dp, one=1.0_dp, two=2.0_dp
+    real(dp), parameter :: zero=0.0_dp
     real(dp), dimension(ord,ord) :: m, n, p
     integer(i32) :: i, j, k
 
     !! filling up matrices
     p = zero
-    m = one
-    n = two
+    call random_seed()
+    call random_number(m)
+    call random_number(n)
 
     !! trivial matrix multiplication
     call cpu_time(startT)
