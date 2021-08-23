@@ -35,4 +35,4 @@ You may be curious about what kind of optimization the compiler has performed wh
 
 `gcc -O3 -fopt-info-all=opt.info`
 
-and that would dump the information in file *opt.info*. For this particular SAXPY code, at least using GCC 10.2.1 20201220, it looks to me that optimziation is largely performed by vectorizing the *for* loop declared in the function (line 56 of the code). If you want to know more about vectorization, [here's an excelent article](https://objectcomputing.com/resources/publications/sett/december-2016-performance-optimization-on-modern-processor-architecture-through-vectorization). 
+and that would dump the information in file *opt.info*. For this particular SAXPY code, at least using GCC 10.2.1 20201220, it looks to me that optimization is largely performed by vectorizing the *for* loop declared in the function (line 56 of the code). If you want to know more about vectorization, [here's an excelent article](https://objectcomputing.com/resources/publications/sett/december-2016-performance-optimization-on-modern-processor-architecture-through-vectorization). 
