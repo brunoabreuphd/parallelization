@@ -29,3 +29,10 @@ There are several things that you can do to improve your experience and bring it
 - Try to use different compilers (Intel, for instance). What are the flags available for optimization? How do they work?
 
 If you do these changes or any others that you wish, let me know about your results!
+
+### Additional information
+You may be curious about what kind of optimization the compiler has performed when using -Ox flags, or even for individual, specific flags, you may wonder why they did not do anything. It is possible to obtain some information about that with GCC using the *-fopt-info* options. The exact syntax can be found [here](https://gcc.gnu.org/onlinedocs/gcc/Developer-Options.html). As an example, if you want to list all information about a level 3 optimization for the SAXPY code, you would use:
+
+`gcc -O3 -fopt-info-all=opt.info`
+
+and that would dump the information in file *opt.info*. For this particular SAXPY code, at least using GCC 10.2.1 20201220, it looks to me that optimziation is largely performed by vectorizing the *for* loop declared in the function (line 56 of the code). If you want to know more about vectorization, [here's an excelent article](https://objectcomputing.com/resources/publications/sett/december-2016-performance-optimization-on-modern-processor-architecture-through-vectorization). 
