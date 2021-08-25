@@ -36,3 +36,32 @@ You may be curious about what kind of optimization the compiler has performed wh
 `gcc -O3 -fopt-info-all=opt.info saxpy.c`
 
 and that would dump the information in file *opt.info*. For this particular SAXPY code, at least using GCC 10.2.1 20201220, it looks to me that optimization is largely performed by vectorizing the *for* loop declared in the function (line 56 of the code). If you want to know more about vectorization, [here's an excellent article](https://objectcomputing.com/resources/publications/sett/december-2016-performance-optimization-on-modern-processor-architecture-through-vectorization). 
+
+
+## [openmp](./openmp)
+This folder contains the code with OpenMP directives [saxpy_openmp.c](./openmp/saxpy_openmp.c) and supporting Python files. The GCC compilation flag to enable OpenMP is *-fopenmp*. If you do not want to deal with Python, just make sure this flag is listed in the *LDFLAGS* variable in the [Makefile](./openmp/Makefile), compile it and run it to see the execution time. To cast a different number of OpenMP threads, before executing the *a.out* binary, set the *OMP_NUM_THREADS* environment variable. For example,
+
+`export OMP_NUM_THREADS=4`
+
+will use 4 threads.
+
+If you are okay with Python, you may want to check:
+- [openmp_scaling.ipynb](./openmp/openmp_scaling.ipynb): This is a Jupyter notebook that calls GCC (gcc) to compile *saxpy_openmp.c* and run it with a varying number of threads. It then plots the resulting scaling.
+- [openmp_scaling.py](./openmp/openmp_scaling.py): It does the same as the notebook, but I provided it in case you want to call it from a place where you don't have access to a Jupyter notebook (a remote cluster, for instance). The graphs are saved to *png* files.
+
+These Python codes do not require fancy imports: pretty much any base Anaconda distribution that I am aware of should have the necessary packages already installed. However, in case it does not work for you, the environment is specified in [conda_env.yml](./compiler_opt/conda_env.yml).
+
+### Conclusions
+- OpenMP is an easy approach to parallelize loop-intensive computation in an incremental fashion.
+- Speedup can be quite linear, but it tends to saturate.
+- Make sure the number of threads you are calling is compatible to your system.
+
+
+### Further exercises
+- There is another loop in this program (line 42). Try parallelizing that one as well. Measure the performance by timing that part of the code.
+- Write a Fortran version of this code. Is there any performance difference?
+- Compare this exercise to the results of [compiler_opt](./compiler_opt). How does OpenMP compare to compiler vectorization?
+
+
+### Additional information
+OpenMP is not a language itself, and it finds its ways through C compilers by the use of *pragma*s. If you are not familiar with these, [here is a good description of how they work](https://www.geeksforgeeks.org/pragma-directive-in-c-c/).
