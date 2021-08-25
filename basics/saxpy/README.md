@@ -65,3 +65,4 @@ These Python codes do not require fancy imports: pretty much any base Anaconda d
 
 ### Additional information
 OpenMP is not a language itself, and it finds its ways through C compilers by the use of *pragma*s. If you are not familiar with these, [here is a good description of how they work](https://www.geeksforgeeks.org/pragma-directive-in-c-c/).
+*Threads* and *cores* can be confusing. If you want to know better what a thread actually is, [check out this article](https://blog.logicalincrements.com/2019/10/cpu-what-are-threads/).
