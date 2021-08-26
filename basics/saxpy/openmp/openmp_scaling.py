@@ -16,7 +16,7 @@ except:
     sys.exit()
 
 # define compiler name, OpenMP flag and source file name
-compiler = 'gcc-10'
+compiler = 'gcc'
 flag = '-fopenmp'
 sourcefile = 'saxpy_openmp.c'
 
