@@ -1,0 +1,20 @@
+# Fortran GCC compiler
+FC=gfortran
+
+# compilation flags (none))
+FDFLAGS=-fopenmp
+
+# source file
+SOURCE=./matmul_openmp.f90
+
+# binary name
+EXEC=a.out
+
+all:
+	$(FC) $(FDFLAGS) $(SOURCE) -o $(EXEC)
+	@echo -e "----- COMPILATION DONE -----"
+
+
+clean:
+	rm -r $(EXEC)
+

@@ -56,7 +56,8 @@ int main()
 
 void saxpy(int n, float a, float *restrict x, float *restrict y)
 {
-#pragma omp parallel for
-    for (int i = 0; i < n; ++i)
+    int i;
+#pragma omp parallel for private(i) shared(a, x, y)
+    for (i = 0; i < n; ++i)
         y[i] = a * x[i] + y[i];
 }
