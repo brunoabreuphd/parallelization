@@ -5,7 +5,7 @@ CC=g++
 LDFLAGS=
 
 # source file
-SOURCE=./hello_serial.c
+SOURCE=./hello_serial.cpp
 
 # binary name
 EXEC=a.out
