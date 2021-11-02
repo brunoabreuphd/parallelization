@@ -101,8 +101,6 @@ void get_vec_max(const vector<double> &v)
     {
         if (v[i] > max)
             max = v[i];
-        if (max == 1.0)
-            cout << "one" << endl;
     }
     cout << scientific;
     cout << "Max of vector: " << max << endl;
