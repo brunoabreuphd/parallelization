@@ -5,7 +5,7 @@
 * National Center for Supercomputing Applications (NCSA)
 *  
 * Creation Date: Tuesday, 2nd November 2021, 8:32:04 am
-* Last Modified: Tuesday, 2nd November 2021, 10:41:36 am
+* Last Modified: Tuesday, 2nd November 2021, 3:19:34 pm
 *  
 * Copyright (c) 2021, Bruno R. de Abreu, National Center for Supercomputing Applications.
 * All rights reserved.
@@ -78,8 +78,6 @@ void get_vec_max(const vector<double> &v)
     {
         if (v[i] > max)
             max = v[i];
-        if (max == 1.0)
-            cout << "one" << endl;
     }
     cout << scientific;
     cout << "Max of vector: " << max << endl;
