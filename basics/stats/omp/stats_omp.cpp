@@ -50,22 +50,23 @@ int main()
 
     // variables for timing
     struct timeval start_time, stop_time, elapsed_time;
+    
     gettimeofday(&start_time, NULL); // start clock
-#pragma omp parallel
+    #pragma omp parallel
     {
-#pragma omp sections
+        #pragma omp sections
         {
-#pragma omp section
+            #pragma omp section
             {
                 // find vector min
                 get_vec_min(vec);
             }
-#pragma omp section
+            #pragma omp section
             {
                 // find vec max
                 get_vec_max(vec);
             }
-#pragma omp section
+            #pragma omp section
             {
                 // find vec avg
                 get_vec_avg(vec);

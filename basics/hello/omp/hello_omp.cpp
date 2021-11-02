@@ -33,7 +33,7 @@ int main()
 {
     string hello;
     hello = "Hello, Parallel World!";
-#pragma omp parallel
+    #pragma omp parallel
     {
         cout << hello << endl;
     }
