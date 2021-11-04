@@ -55,7 +55,7 @@ int main()
 
     // now call saxpy
     gettimeofday(&start_time, NULL);
-#pragma omp parallel
+    #pragma omp parallel
     {
         saxpy(a, x, y);
     }
@@ -69,9 +69,11 @@ int main()
 
 void saxpy(float a, const vector<float> &x, vector<float> &y)
 {
-#pragma omp for
-    for (int i = 0; i < x.size(); i++)
+    #pragma omp for
     {
-        y[i] = a * x[i] + y[i];
+        for (int i = 0; i < x.size(); i++)
+        {
+            y[i] = a * x[i] + y[i];
+        }
     }
 }
