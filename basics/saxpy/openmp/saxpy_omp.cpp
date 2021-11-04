@@ -70,10 +70,8 @@ int main()
 void saxpy(float a, const vector<float> &x, vector<float> &y)
 {
     #pragma omp for
+    for (int i = 0; i < x.size(); i++)
     {
-        for (int i = 0; i < x.size(); i++)
-        {
-            y[i] = a * x[i] + y[i];
-        }
+        y[i] = a * x[i] + y[i];
     }
 }
