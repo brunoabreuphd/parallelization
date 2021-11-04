@@ -1,11 +1,11 @@
-# Fortran GCC compiler
-CC=gcc
+# C++ GCC compiler
+CC=g++
 
 # compilation flags (none)
 LDFLAGS=-fopenmp
 
 # source file
-SOURCE=./saxpy_openmp.c
+SOURCE=./saxpy_omp.cpp
 
 # binary name
 EXEC=a.out
